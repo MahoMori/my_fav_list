@@ -2,5 +2,12 @@
 
 {% block content %}
 <h1>Add New Favourites</h1>
+<h2>{{error}}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Add</button>
+</form>
 
 {% endblock %}
