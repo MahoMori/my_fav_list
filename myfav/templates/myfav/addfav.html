@@ -4,7 +4,7 @@
 <h1>Add New Favourites</h1>
 <h2>{{error}}</h2>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Add</button>

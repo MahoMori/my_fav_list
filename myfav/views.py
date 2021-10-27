@@ -20,7 +20,7 @@ def addfav(request):
         return render(request, 'myfav/addfav.html', {'form': MyfavForm()})
     else:
         try:
-            form = MyfavForm(request.POST)
+            form = MyfavForm(request.POST, request.FILES)
             newFav = form.save()
             return redirect('myfavlist')
         except ValueError:

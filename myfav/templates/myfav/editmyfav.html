@@ -6,7 +6,7 @@
 <h2>{{error}}</h2>
 
 <h3>{{myfav.name}}</h3>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Save</button>
