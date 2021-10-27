@@ -44,7 +44,7 @@ def editmyfav(request, myfav_id):
         )
     else:
         try:
-            form = TodoForm(request.POST, isinstance=myfav)
+            form = MyfavForm(request.POST, instance=myfav)
             form.save()
             return redirect('myfavlist')
         except ValueError:
@@ -53,3 +53,9 @@ def editmyfav(request, myfav_id):
                 'myfav/editmyfav.html',
                 {'myfav': myfav, 'form': form, 'error': 'An error occured. Try again.'}
         )
+
+def delete(request, myfav_id):
+    myfav = get_object_or_404(Myfav, pk=myfav_id)
+    if request.method == 'POST':
+        myfav.delete()
+        return redirect('myfavlist')

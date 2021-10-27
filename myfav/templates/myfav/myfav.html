@@ -13,10 +13,16 @@
         <p class="genre">{{myfav.genre}}</p>
         <p class='description'>{{myfav.description}}</p>
         <a href="{% url 'editmyfav' myfav.id %}">Edit</a>
+        <form action="{% url 'delete' myfav.id %}" method="POST">
+            {% csrf_token %}
+            <button id="delete" type="submit">Delete</button>
+        </form>
         <p>------------------------</p>
     </div>
 
     {% endfor %}
 </main>
+
+
 
 {% endblock %}

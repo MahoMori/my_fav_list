@@ -25,6 +25,7 @@ urlpatterns = [
     path('myfav/', views.myfavlist, name='myfavlist'),
     path('add/', views.addfav, name='addfav'),
     path('myfav/<int:myfav_id>', views.editmyfav, name='editmyfav'),
+    path('myfav/<int:myfav_id>/delete', views.delete, name='delete')
 ]
 
 # if settings.DEBUG:
