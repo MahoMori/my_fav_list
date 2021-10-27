@@ -4,4 +4,25 @@
 <h1 id='username'>{{user.username}}</h1>
 <h1>My Favourites</h1>
 
+<main>
+    {% for myfav in myfavs %}
+
+    <div>
+        <p class="name">{{myfav.name}}</p>
+        <p class="author_or_creator">{{myfav.author_or_creator}}</p>
+        <p class="genre">{{myfav.genre}}</p>
+        <p class='description'>{{myfav.description}}</p>
+        <a href="{% url 'editmyfav' myfav.id %}">Edit</a>
+        <form action="{% url 'delete' myfav.id %}" method="POST">
+            {% csrf_token %}
+            <button id="delete" type="submit">Delete</button>
+        </form>
+        <p>------------------------</p>
+    </div>
+
+    {% endfor %}
+</main>
+
+
+
 {% endblock %}
