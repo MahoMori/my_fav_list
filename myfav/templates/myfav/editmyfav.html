@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Edit My Favourite</h1>
+
+<h2>{{error}}</h2>
+
+<h3>{{myfav.name}}</h3>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Save</button>
+</form>
+
+
+{% endblock %}

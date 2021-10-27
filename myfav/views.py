@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 # from django.contrib.auth.models import User
 from django.db import IntegrityError
 from .forms import MyfavForm
@@ -7,7 +7,7 @@ from .models import Myfav
 
 # Create your views here.
 def myfavlist(request):
-    myfavs = Myfav.objects.all
+    myfavs = Myfav.objects.all()
     # myfavs = Myfav.objects.filter(user=request.user)
     return render(
         request,
@@ -32,3 +32,24 @@ def addfav(request):
                     'error': 'An error occured. Try again.'
                 }
             )
+
+def editmyfav(request, myfav_id):
+    myfav = get_object_or_404(Myfav, pk=myfav_id)
+    if request.method == 'GET':
+        form = MyfavForm(request.POST, instance=myfav)
+        return render(
+            request,
+            'myfav/editmyfav.html',
+            {'myfav': myfav, 'form': form}
+        )
+    else:
+        try:
+            form = TodoForm(request.POST, isinstance=myfav)
+            form.save()
+            return redirect('myfavlist')
+        except ValueError:
+            return render(
+                request,
+                'myfav/editmyfav.html',
+                {'myfav': myfav, 'form': form, 'error': 'An error occured. Try again.'}
+        )

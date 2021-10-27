@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('myfav/', views.myfavlist, name='myfavlist'),
-    path('add/', views.addfav, name='addfav')
+    path('add/', views.addfav, name='addfav'),
+    path('myfav/<int:myfav_id>', views.editmyfav, name='editmyfav'),
 ]
 
 # if settings.DEBUG:

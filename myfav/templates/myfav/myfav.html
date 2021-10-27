@@ -12,6 +12,7 @@
         <p class="author_or_creator">{{myfav.author_or_creator}}</p>
         <p class="genre">{{myfav.genre}}</p>
         <p class='description'>{{myfav.description}}</p>
+        <a href="{% url 'editmyfav' myfav.id %}">Edit</a>
         <p>------------------------</p>
     </div>
 
