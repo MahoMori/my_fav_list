@@ -44,7 +44,7 @@ def editmyfav(request, myfav_id):
         )
     else:
         try:
-            form = MyfavForm(request.POST, instance=myfav)
+            form = MyfavForm(request.POST, request.FILES)
             form.save()
             return redirect('myfavlist')
         except ValueError:

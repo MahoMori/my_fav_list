@@ -1,28 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 id='username'>{{user.username}}</h1>
-<h1>My Favourites</h1>
+
+{% load static %}
+
+<div class="head">
+    <h1 class='username'>{{user.username}}</h1>
+    <!-- <h1>~ My Favourites ~</h1> -->
+</div>
 
 <main>
-    {% for myfav in myfavs %}
+    {% for myfav in myfavs reversed %}
 
-    <div>
-        <p class="name">{{myfav.name}}</p>
-        <p class="author_or_creator">{{myfav.author_or_creator}}</p>
-        <p class="genre">{{myfav.genre}}</p>
-        <img src="{{ myfav.image.url }}" style="width:300px;height:auto">
-        <p class='description'>{{myfav.description}}</p>
-        <a href="{% url 'editmyfav' myfav.id %}">Edit</a>
-        <form action="{% url 'delete' myfav.id %}" method="POST">
-            {% csrf_token %}
-            <button id="delete" type="submit">Delete</button>
-        </form>
-        <p>------------------------</p>
+    <div class="card {{myfav.genre}}">
+        <div class="img-div">
+            {% if myfav.image %}
+                <img class="img" src="{{ myfav.image.url }}">
+            {% else %}
+                <img class="img" src="../../../images/20200501_noimage.png">
+            {% endif %}
+        </div>
+        <div class="info-div">
+            <p class="name"><strong>{{myfav.name}}</strong></p>
+            <p class="author_or_creator">{{myfav.author_or_creator}}</p>
+            <p class="genre">{{myfav.genre}}</p>
+            <hr>
+            <p class='description'>{{myfav.description}}</p>
+            <a class="fas fa-pencil-alt" href="{% url 'editmyfav' myfav.id %}"></a>
+            <form action="{% url 'delete' myfav.id %}" method="POST">
+                {% csrf_token %}
+                <button class="delete" type="submit"><i class="fas fa-trash-alt"></i></button>
+            </form>
+        </div> 
     </div>
 
     {% endfor %}
 </main>
+
 
 
 
