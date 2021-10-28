@@ -9,6 +9,11 @@ body {
     background-color: #fffbc5;
 }
 
+
+
+
+/* ---------------------------- */
+/* base */
 header {
     height: 70px;
     background-color: #ffdeb3;
@@ -17,6 +22,7 @@ header {
 .nav-ul {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .nav-ul li{
@@ -24,6 +30,7 @@ header {
     font-size: 1.75rem;
     color: #fff;
     padding: 5px 10px;
+    cursor: pointer;
 }
 
 .nav-ul li:hover {
@@ -41,6 +48,12 @@ header {
     color: #ffb3c7;
 }
 
+
+
+
+
+/* ---------------------------- */
+/* myfav.html */
 .head {
     text-align: center;
     margin: 15px 0;
@@ -125,8 +138,6 @@ main {
 
 
 
-
-
 .info-div {
     position: relative;
 }
@@ -189,4 +200,13 @@ hr {
 
 .fa-trash-alt:hover {
     color: #000;
+}
+
+
+
+
+/* ---------------------------- */
+/* editmyfav.html */
+.head-title {
+    font-size: 3rem;
 }

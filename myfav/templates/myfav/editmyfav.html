@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Edit My Favourite</h1>
 
-<h2>{{error}}</h2>
+{% load static %}
+
+<div class="head">    
+    <h1 class="head-title">Edit My Favourite</h1>
+</div>
+
+<!-- <h2>{{error}}</h2> -->
 
 <h3>{{myfav.name}}</h3>
 <form method="POST" enctype="multipart/form-data">
@@ -11,6 +16,41 @@
     {{form.as_p}}
     <button type="submit">Save</button>
 </form>
+
+<section>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="">
+            <label for="name">Name</label>
+            <input required type="text" class="" name="name" value="{{myfav.name}}">
+        </div>
+        <div class="">
+            <label for="author_or_creator">Author or Creator</label>
+            <input class="" name="author_or_creator" value="{{myfav.author_or_creator}}"></input>
+            </div>
+        <div class="">
+            <label for="genre">Genre</label>
+            <select name="genre" value="{{myfav.genre}}">
+                <option value="book">Book</option>                 
+                <option value="anime/manga">Anime/Manga</option>
+                <option value="movie">Movie</option>
+                <option value="music">Music</option>
+                <option value="game">Game</option>
+                <option value="food">Food</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="image">Image</label>
+            <input type="file" name="image" accept="image/*">
+        </div>
+        <div class="">
+            <label for="description">Description</label>
+            <textarea class="" name="description">{{myfav.description}}</textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+</section>
 
 
 {% endblock %}
