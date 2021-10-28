@@ -14,20 +14,18 @@
     <title>My Favourites</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav-ul">
-                <li>
-                    <i class="fas fa-heart"></i>
-                    <a href="{% url 'myfavlist' %}">HOME</a>
-                </li>
-                <li>
-                    <i class="fas fa-heart"></i>
-                    <a href="{% url 'addfav' %}">ADD</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul class="nav-ul">
+            <li>
+                <i class="fas fa-heart"></i>
+                <a href="{% url 'myfavlist' %}">HOME</a>
+            </li>
+            <li>
+                <i class="fas fa-heart"></i>
+                <a href="{% url 'addfav' %}">ADD</a>
+            </li>
+        </ul>
+    </nav>
 
 
     {% block content %}

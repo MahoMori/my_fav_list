@@ -4,33 +4,48 @@
 
 {% load static %}
 
+<style>
+    .form-section form {
+        box-shadow: -10px 0px 13px -7px rgba(0, 196, 81, 0.473), 10px 0px 13px -7px rgba(0, 196, 81, 0.473);
+    }
+
+    .btn {
+        background-color: #44eb8a;
+        transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+        background-color: #2de77b;
+    }
+</style>
+
 <div class="head">    
     <h1 class="head-title">Edit My Favourite</h1>
+    <h3 class="error-msg">{{error}}</h3>
 </div>
 
-<!-- <h2>{{error}}</h2> -->
 
-<h3>{{myfav.name}}</h3>
+<!-- <h3>{{myfav.name}}</h3>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Save</button>
-</form>
+</form> -->
 
-<section>
+<section class="form-section">
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="">
-            <label for="name">Name</label>
-            <input required type="text" class="" name="name" value="{{myfav.name}}">
+        <div class="form-row">
+            <label for="name" class="label label-center">Name</label>
+            <input required type="text" class="input-select-area" name="name" autocomplete="off" value="{{myfav.name}}">
         </div>
-        <div class="">
-            <label for="author_or_creator">Author or Creator</label>
-            <input class="" name="author_or_creator" value="{{myfav.author_or_creator}}"></input>
-            </div>
-        <div class="">
-            <label for="genre">Genre</label>
-            <select name="genre" value="{{myfav.genre}}">
+        <div class="form-row">
+            <label for="author_or_creator" class="label label-center">Author or Creator</label>
+            <input type="text" class="input-select-area" name="author_or_creator" autocomplete="off" value="{{myfav.author_or_creator}}">
+        </div>
+        <div class="form-row">
+            <label for="genre" class="label label-center">Genre</label>
+            <select class="input-select-area" name="genre" value="{{myfav.genre}}">
                 <option value="book">Book</option>                 
                 <option value="anime/manga">Anime/Manga</option>
                 <option value="movie">Movie</option>
@@ -40,15 +55,15 @@
                 <option value="other">Other</option>
             </select>
         </div>
-        <div>
-            <label for="image">Image</label>
+        <div class="form-row">
+            <label for="image" class="label label-center">Image</label>
             <input type="file" name="image" accept="image/*">
         </div>
-        <div class="">
-            <label for="description">Description</label>
-            <textarea class="" name="description">{{myfav.description}}</textarea>
+        <div class="form-row">
+            <label for="description" class="label">Description</label>
+            <textarea class="textarea" name="description">{{myfav.description}}</textarea>
         </div>
-        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn" type="submit">Save</button>
     </form>
 </section>
 

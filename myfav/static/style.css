@@ -14,7 +14,7 @@ body {
 
 /* ---------------------------- */
 /* base */
-header {
+nav {
     height: 70px;
     background-color: #ffdeb3;
 }
@@ -23,6 +23,7 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 100%;
 }
 
 .nav-ul li{
@@ -206,7 +207,72 @@ hr {
 
 
 /* ---------------------------- */
-/* editmyfav.html */
+/* editmyfav.html & addfav.html*/
 .head-title {
     font-size: 3rem;
+}
+
+.error-msg {
+    color: #e93636;
+}
+
+.form-section {
+    position: relative;
+    height: 100vh;
+}
+
+.form-section form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    padding: 20px;
+    background-color: #fff1ba;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 40px;
+}
+
+.label {
+    font-size: 1.5rem;
+}
+
+.label-center {
+    display: flex;
+    align-items: center;
+}
+
+.input-select-area {
+    height: 50px;
+    font-size: 1.5rem;
+    padding: 0 20px;
+    border: none;
+    background-color: #fff;
+}
+
+.textarea {
+    height: 150px;
+    padding: 10px 10px;
+    font-size: 1.05rem;
+    border: none;
+    background-color: #fff;
+}
+
+.btn {
+    height: 40px;
+    width: 100px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #eb4444;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #e93636;
 }
