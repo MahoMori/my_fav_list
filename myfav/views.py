@@ -36,7 +36,7 @@ def addfav(request):
 def editmyfav(request, myfav_id):
     myfav = get_object_or_404(Myfav, pk=myfav_id)
     if request.method == 'GET':
-        form = MyfavForm(request.POST, instance=myfav)
+        form = MyfavForm(request.POST, request.FILES, instance=myfav)
         return render(
             request,
             'myfav/editmyfav.html',
@@ -44,7 +44,7 @@ def editmyfav(request, myfav_id):
         )
     else:
         try:
-            form = MyfavForm(request.POST, request.FILES)
+            form = MyfavForm(request.POST, request.FILES, instance=myfav)
             form.save()
             return redirect('myfavlist')
         except ValueError:
