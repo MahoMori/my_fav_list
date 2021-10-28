@@ -22,9 +22,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('myfav/', views.myfavlist, name='myfavlist'),
+    path('', views.myfavlist, name='myfavlist'),
     path('add/', views.addfav, name='addfav'),
     path('myfav/<int:myfav_id>', views.editmyfav, name='editmyfav'),
     path('myfav/<int:myfav_id>/delete', views.delete, name='delete')
 ]
-urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
