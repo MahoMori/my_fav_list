@@ -45,19 +45,66 @@
         </div>
         <div class="form-row">
             <label for="genre" class="label label-center">Genre</label>
-            <select class="input-select-area" name="genre" value="{{myfav.genre}}">
-                <option value="book">Book</option>                 
+            <select class="input-select-area" name="genre">
+                <!-- {% if myfav.genre == "book" %}
+                <option value="book" selected>Book</option>
+                {% else %}
+                <option value="book">Book</option>
+                {% endif %}
+                
+                {% if myfav.genre == "anime/manga" %}
+                <option value="anime/manga" selected>Anime/Manga</option>
+                {% else %}
                 <option value="anime/manga">Anime/Manga</option>
+                {% endif %}
+
+                {% if myfav.genre == "movie" %}
+                <option value="movie" selected>Movie</option>
+                {% else %}
                 <option value="movie">Movie</option>
+                {% endif %}
+
+                {% if myfav.genre == "music" %}
+                <option value="music" selected>Music</option>
+                {% else %}
                 <option value="music">Music</option>
+                {% endif %}
+                
+                {% if myfav.genre == "game" %}
+                <option value="game" selected>Game</option>
+                {% else %}
                 <option value="game">Game</option>
+                {% endif %}
+                
+                {% if myfav.genre == "food" %}
+                <option value="food" selected>Food</option>
+                {% else %}
                 <option value="food">Food</option>
+                {% endif %}
+                
+                {% if myfav.genre == "other" %}
+                <option value="other" selected>Other</option>
+                {% else %}
                 <option value="other">Other</option>
+                {% endif %}                 -->
+
+                <option value="book" id="book">Book</option>                 
+                <option value="anime/manga" id="anime/manga">Anime/Manga</option>
+                <option value="movie" id="movie">Movie</option>
+                <option value="music" id="music">Music</option>
+                <option value="game" id="game">Game</option>
+                <option value="food" id="food">Food</option>
+                <option value="other" id="other">Other</option>
+                
             </select>
         </div>
         <div class="form-row">
             <label for="image" class="label label-center">Image</label>
-            <input type="file" name="image" accept="image/*">
+            <div>
+                <input type="file" name="image" accept="image/*">
+                <p id="imgName"></p>
+            </div>
+            
         </div>
         <div class="form-row">
             <label for="description" class="label">Description</label>
@@ -66,6 +113,22 @@
         <button class="btn" type="submit">Save</button>
     </form>
 </section>
+
+
+{% if myfav.image %}
+<script>
+    const imgName = url => {
+        return url.replace("/media/images/", "")
+    }
+    let url = "{{myfav.image.url}}"
+    document.getElementById("imgName").innerHTML = imgName(url)
+</script>
+{% endif %}
+
+<script>
+    let genre = "{{myfav.genre}}"
+    document.getElementById(genre).setAttribute("selected", true)
+</script>
 
 
 {% endblock %}

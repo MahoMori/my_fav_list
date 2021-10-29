@@ -261,6 +261,10 @@ hr {
     background-color: #fff;
 }
 
+input[type='file'] {
+    color: transparent;
+ }
+
 .btn {
     height: 40px;
     width: 100px;
