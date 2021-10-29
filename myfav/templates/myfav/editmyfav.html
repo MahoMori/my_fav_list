@@ -121,7 +121,7 @@
         return url.replace("/media/images/", "")
     }
     let url = "{{myfav.image.url}}"
-    document.getElementById("imgName").innerHTML = imgName(url)
+    document.getElementById("imgName").innerHTML = "Current Image: " + imgName(url)
 </script>
 {% endif %}
 
