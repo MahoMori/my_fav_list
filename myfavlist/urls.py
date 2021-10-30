@@ -26,11 +26,11 @@ urlpatterns = [
 
     path('myfav/book', views.book, name='book'),
     path('myfav/anime_manga', views.animeManga, name='anime_manga'),
-    # path('myfav/movie', views.movie, name='movie'),
-    # path('myfav/music', views.music, name='music'),
-    # path('myfav/game', views.game, name='game'),
-    # path('myfav/food', views.food, name='food'),
-    # path('myfav/other', views.other, name='other'),
+    path('myfav/movie', views.movie, name='movie'),
+    path('myfav/music', views.music, name='music'),
+    path('myfav/game', views.game, name='game'),
+    path('myfav/food', views.food, name='food'),
+    path('myfav/other', views.other, name='other'),
 
     path('add/', views.addfav, name='addfav'),
     path('myfav/<int:myfav_id>', views.editmyfav, name='editmyfav'),

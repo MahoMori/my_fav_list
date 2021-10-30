@@ -31,10 +31,45 @@ def animeManga(request):
         {'ams':ams}
     )
 
+def movie(request):
+    movies = Myfav.objects.filter(genre__iexact='movie')
+    return render(
+        request,
+        'myfav/movie.html',
+        {'movies':movies}
+    )
 
+def music(request):
+    musics = Myfav.objects.filter(genre__iexact='music')
+    return render(
+        request,
+        'myfav/music.html',
+        {'musics':musics}
+    )
 
+def game(request):
+    games = Myfav.objects.filter(genre__iexact='game')
+    return render(
+        request,
+        'myfav/game.html',
+        {'games':games}
+    )
 
+def food(request):
+    foods = Myfav.objects.filter(genre__iexact='food')
+    return render(
+        request,
+        'myfav/food.html',
+        {'foods':foods}
+    )
 
+def other(request):
+    others = Myfav.objects.filter(genre__iexact='other')
+    return render(
+        request,
+        'myfav/other.html',
+        {'others':others}
+    )
 
 
 def addfav(request):

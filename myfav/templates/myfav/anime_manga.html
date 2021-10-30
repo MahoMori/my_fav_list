@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="head">
+    <h1 class='head-title'>Anime/Manga</h1>
+</div>
+
+<main>
+    {% for am in ams reversed %}
+
+    <div class="card {{am.genre}}">
+        <div class="img-div">
+            {% if am.image %}
+                <img class="img" src="{{ am.image.url }}">
+            {% else %}
+                <img class="img" src="../../../media/images/20200501_noimage.png">
+            {% endif %}
+        </div>
+        <div class="info-div">
+            <p class="name"><strong>{{am.name}}</strong></p>
+            <p class="author_or_creator">{{am.author_or_creator}}</p>
+            <p class="genre">{{am.genre}}</p>
+            <hr>
+            <p class='description'>{{am.description}}</p>
+            <a class="fas fa-pencil-alt" href="{% url 'editmyfav' am.id %}"></a>
+            <form action="{% url 'delete' am.id %}" method="POST">
+                {% csrf_token %}
+                <button class="delete" type="submit"><i class="fas fa-trash-alt"></i></button>
+            </form>
+        </div> 
+    </div>
+
+    {% endfor %}
+</main>
+
+
+
+
+{% endblock %}

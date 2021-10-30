@@ -30,8 +30,13 @@
             <li>
                 <select class="filter-genre" onChange="location.href=value">
                     <option value=none>-- Filter by genre --</option>
-                    <option value="{% url 'book' %}">Book</option>                 
-                    
+                    <option value="{% url 'book' %}">Book</option>
+                    <option value="{% url 'anime_manga' %}">Anime/manga</option>
+                    <option value="{% url 'movie' %}">Movie</option>
+                    <option value="{% url 'music' %}">Music</option>
+                    <option value="{% url 'game' %}">Game</option>
+                    <option value="{% url 'food' %}">Food</option>
+                    <option value="{% url 'other' %}">Other</option>
                 </select>
             </li>
         </ul>
