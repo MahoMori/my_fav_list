@@ -34,7 +34,7 @@ nav {
     cursor: pointer;
 }
 
-.nav-ul li:hover {
+.nav-ul li:not(:last-child):hover {
     background-color: #fff;
     color: #ffb3c7;
     border-radius: 50px;
@@ -48,6 +48,14 @@ nav {
 .nav-ul li:hover a {
     color: #ffb3c7;
 }
+
+.filter-genre {
+    border: none;
+    font-size: 1.75rem;
+    border-radius: 5px;
+    padding: 4px;
+}
+
 
 
 

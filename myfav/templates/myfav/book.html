@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="head">
+    <h1 class='head-title'>Book</h1>
+    <!-- <h1 class='username'>{{user.username}}</h1> -->
+</div>
+
+<main>
+    {% for book in books reversed %}
+
+    <div class="card {{book.genre}}">
+        <div class="img-div">
+            {% if book.image %}
+                <img class="img" src="{{ book.image.url }}">
+            {% else %}
+                <img class="img" src="../../../media/images/20200501_noimage.png">
+            {% endif %}
+        </div>
+        <div class="info-div">
+            <p class="name"><strong>{{book.name}}</strong></p>
+            <p class="author_or_creator">{{book.author_or_creator}}</p>
+            <p class="genre">{{book.genre}}</p>
+            <hr>
+            <p class='description'>{{book.description}}</p>
+            <a class="fas fa-pencil-alt" href="{% url 'editmyfav' book.id %}"></a>
+            <form action="{% url 'delete' book.id %}" method="POST">
+                {% csrf_token %}
+                <button class="delete" type="submit"><i class="fas fa-trash-alt"></i></button>
+            </form>
+        </div> 
+    </div>
+
+    {% endfor %}
+</main>
+
+
+
+
+{% endblock %}

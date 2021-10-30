@@ -15,6 +15,28 @@ def myfavlist(request):
         {'myfavs':myfavs}
     )
 
+def book(request):
+    books = Myfav.objects.filter(genre__iexact='book')
+    return render(
+        request,
+        'myfav/book.html',
+        {'books':books}
+    )
+
+def animeManga(request):
+    ams = Myfav.objects.filter(genre__iexact='anime/manga')
+    return render(
+        request,
+        'myfav/anime_manga.html',
+        {'ams':ams}
+    )
+
+
+
+
+
+
+
 def addfav(request):
     if request.method == 'GET':
         return render(request, 'myfav/addfav.html', {'form': MyfavForm()})
