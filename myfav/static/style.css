@@ -57,6 +57,38 @@ nav {
 }
 
 
+/* Smartphone */
+@media (max-width: 320px) {
+
+    nav {
+        height: 130px;
+    }
+
+    .nav-ul {
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 500px) {
+    
+    nav {
+        height: 130px;
+    }
+
+    .nav-ul {
+        flex-wrap: wrap;
+    }
+}
+
+/* Normal */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+}
+
+@media (min-width: 1441px) {
+
+}
+
 
 
 
@@ -75,31 +107,16 @@ nav {
 }
 
 main {
-    /* display: flex;
-	flex-wrap: wrap;
-    align-content: flex-start; */
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     padding: 2rem;
-
-    /* column-count: 2;
-    column-gap: 0px; */
-
-
 }
 
 .card {
-    /* width: calc(100% / 2); */
-
     border-radius: 10px;
     padding: 1rem;
     height: 325px;
-
-    /* width: 100% !important;
-    height: auto !important; */
-
     display: grid;
     grid-template-columns: 37% 63%;
 }
@@ -113,7 +130,6 @@ main {
 }
 
 .movie {
-    /* background-color: #F595B2; */
     background-color: #FFB1B0;
 }
 
@@ -126,7 +142,6 @@ main {
 }
 
 .food {
-    /* background-color: #FFB1B0; */
     background-color: #ffb13c;
 }
 
@@ -209,6 +224,71 @@ hr {
 
 .fa-trash-alt:hover {
     color: #000;
+}
+
+/* Smartphone */
+@media (max-width: 320px) {
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        height: auto;
+        display: block;
+    }
+
+    .img-div {
+        margin: 0 auto;
+        margin-bottom: 1rem;
+    }
+
+}
+
+@media (min-width: 321px) and (max-width: 500px) {
+    
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        height: auto;
+        display: block;
+    }
+
+    .img-div {
+        margin: 0 auto;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 501px) and (max-width: 768px) {
+
+    .card {
+        height: 640px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 43% 57%;
+    }
+
+    .img-div {
+        margin: 0 auto;
+    }
+}
+
+/* Normal */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .card {
+        height: 600px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 47% 53%;
+    }
+
+}
+
+@media (min-width: 1441px) {
+
 }
 
 
